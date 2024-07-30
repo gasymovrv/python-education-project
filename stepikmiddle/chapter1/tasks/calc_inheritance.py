@@ -25,6 +25,7 @@
 # Yes
 # No
 
+
 class Node:
     def __init__(self, name, children=None):
         if children is None or not isinstance(children, list):
@@ -62,49 +63,101 @@ class Node:
         self.children.extend(children)
 
 
-n = int(input())
+class BidirectionalNode(Node):
+    def __init__(self, name, children=None, parents=None):
+        super().__init__(name, children)
+        if parents is None or not isinstance(parents, list):
+            parents = []
+        self.parents = parents
 
-flat_nodes = dict()
-for i in range(n):
-    classes = input().split(' : ')
-    child_name = classes[0]
+    def has_parent(self, p_name):
+        if self.name == p_name:
+            return True
+        if self.parents is None:
+            return False
 
-    parent_names = []
-    if len(classes) > 1:
-        parent_names = classes[1].split(' ')
+        result = False
+        for p in self.parents:
+            if p.name == p_name:
+                return True
+            result = p.has_parent(p_name)
+            if result:
+                return True
 
-    # create or find parent nodes
-    parents = []
-    for pn in parent_names:
-        if pn in flat_nodes:
-            parent = flat_nodes[pn]
+        return result
+
+    def has_any_parent(self, p_names):
+        for p_name in p_names:
+            if self.has_parent(p_name):
+                return True
+
+    def add_parent(self, p):
+        self.parents.append(p)
+
+    def add_parents(self, ps):
+        self.parents.extend(ps)
+
+
+def create_hierarchy(bi_node=False, hierarchy=None):
+    n = int(input())
+    if hierarchy is None:
+        hierarchy = dict()
+
+    for i in range(n):
+        # child is only one name on the left
+        classes = input().split(' : ')
+        child_name = classes[0]
+
+        # parents are several names separate by space on the right (multiple inheritance)
+        parent_names = []
+        if len(classes) > 1:
+            parent_names = classes[1].split(' ')
+
+        # create or find parent nodes
+        parents = []
+        for pn in parent_names:
+            if pn in hierarchy:
+                parent = hierarchy[pn]
+            else:
+                if bi_node:
+                    parent = BidirectionalNode(pn)
+                else:
+                    parent = Node(pn)
+                hierarchy[pn] = parent
+            parents.append(parent)
+
+        # create or find child node
+        if child_name in hierarchy:
+            child = hierarchy[child_name]
         else:
-            parent = Node(pn)
-            flat_nodes[pn] = parent
-        parents.append(parent)
+            if bi_node:
+                child = BidirectionalNode(child_name)
+            else:
+                child = Node(child_name)
+            hierarchy[child_name] = child
 
-    # create or find child node
-    if child_name in flat_nodes:
-        child = flat_nodes[child_name]
-    else:
-        child = Node(child_name)
-        flat_nodes[child_name] = child
+        # add child to parents and parents to child for BidirectionalNode
+        for p in parents:
+            p.add_child(child)
+            if bi_node:
+                child.add_parent(p)
+    return hierarchy
 
-    # add child to parents
-    for p in parents:
-        p.add_child(child)
+# Commented out because it breaks down imports
 
-q = int(input())
-
-results = []
-for i in range(q):
-    query = input().split(' ')
-    class1 = flat_nodes.get(query[0])
-    class2 = query[1]
-    if class1 is not None and class1.has_child(class2):
-        results.append('Yes')
-    else:
-        results.append('No')
-
-for r in results:
-    print(r)
+# nodes = create_hierarchy()
+#
+# q = int(input())
+#
+# results = []
+# for i in range(q):
+#     query = input().split(' ')
+#     class1 = nodes.get(query[0])
+#     class2 = query[1]
+#     if class1 is not None and class1.has_child(class2):
+#         results.append('Yes')
+#     else:
+#         results.append('No')
+#
+# for r in results:
+#     print(r)
