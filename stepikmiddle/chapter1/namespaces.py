@@ -43,9 +43,12 @@ def a():
 
 a()
 
+for i in range(5):
+    y = i * i  # global variable, python doesn't have block scope
+print('global y defined in for:', y)
+
 for i in []:
     x = i * i  # global variable which is not defined
-
 # print(x)  # NameError: name 'x' is not defined
 
 

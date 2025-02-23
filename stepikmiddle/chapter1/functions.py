@@ -1,7 +1,12 @@
+# printab(1, 2)  # unresolved reference
+
 def printab(a, b):
     print(a)
     print(b)
 
+
+print('id(printab)=', id(printab))
+print('id(printab)=', id(printab))
 
 # Correct ways to call the function
 printab(1, 2)
@@ -17,10 +22,13 @@ dct = {'a': 1, 'b': 2}
 printab(**dct)  # unpacking, equivalent to printab(args['a'], args['b'])
 
 
+# It replaces the previous definition
 def printab(c, d=10):
     print(c)
     print(d)
 
+
+print('id(printab)=', id(printab))
 
 printab(5)  # c=5, d=10
 printab(5, 15)  # c=5 d=15

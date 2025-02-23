@@ -123,3 +123,4 @@ class E(B, C, D):
     pass
 
 # e = E()  # Cannot create a consistent method resolution order (MRO) for bases object, C, D
+# to fix this, we need to swap C and D in the inheritance list or just remove C

@@ -46,7 +46,15 @@ def f3(x, y):
         print("Unknown error")
 
 
+def f3_1(x, y):
+    try:
+        return x / y
+    except Exception as e:
+        print("Unknown error: ", e)
+
+
 f3(4, '0')
+f3_1(4, '0')
 
 print("=========f4()=========")
 
@@ -77,7 +85,9 @@ class BadName(Exception):
 
 
 def greet(name):
-    if name[0].isupper():
+    if name == "Error":
+        raise BadName("Error")
+    elif name[0].isupper():
         return "Hello, " + name
     else:
         raise BadName("Name must start with a capital letter")
@@ -89,4 +99,6 @@ while True:
         print(greet(name))
         break
     except BadName as e:
+        if e.args[0] == "Error":
+            raise
         print("Please try again:", e)

@@ -14,27 +14,33 @@ class MyClass:
         # т.к. в экземпляре нет переменной 'tags', то в итоге мы меняем состояние переменной 'tags' в классе
         self.tags.append(a)
 
+    @staticmethod
+    def change_static_a(a):
+        MyClass.a = a
 
-x = MyClass()
-print(type(x))
+obj1 = MyClass()
+print(type(obj1))
 print(type(MyClass))
 print(type(MyClass.func))
-MyClass.func(x)
-x.func()
+MyClass.func(obj1)
+obj1.func()
 print(MyClass.a)
-print(x.a)
-x.b = 222
-print(x.b)
+print(obj1.a)
+obj1.b = 222
+print(obj1.b)
 
-x2 = MyClass()
-x.change_a(99)
+obj2 = MyClass()
+obj1.change_a(99)
 print('MyClass.a =', MyClass.a)  # 10
-print('x.a =', x.a)  # 99
-print('x2.a =', x2.a)  # 10
+print('obj1.a =', obj1.a)  # 99
+print('obj2.a =', obj2.a)  # 10
 
-x.wrong_change_tags(100)
-print('x.tags =', x.tags)  # 100
-print('x2.tags =', x2.tags)  # 100
+obj1.wrong_change_tags(100)
+print('obj1.tags =', obj1.tags)  # [100]
+print('obj2.tags =', obj2.tags)  # [100]
+
+MyClass.change_static_a(33)
+print('MyClass.a =', MyClass.a)  # 33
 
 
 class Counter:
@@ -52,7 +58,7 @@ counter = Counter()
 counter.inc()
 print(type(counter.inc))  # <class 'method'>
 print(counter.count)
-Counter.inc(counter)
+Counter.inc(counter)  # It's the same as counter.inc()
 print(counter.count)
 counter.reset()
 print(counter.count)

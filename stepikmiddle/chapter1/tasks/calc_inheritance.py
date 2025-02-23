@@ -143,21 +143,26 @@ def create_hierarchy(bi_node=False, hierarchy=None):
                 child.add_parent(p)
     return hierarchy
 
-# Commented out because it breaks down imports
 
-# nodes = create_hierarchy()
-#
-# q = int(input())
-#
-# results = []
-# for i in range(q):
-#     query = input().split(' ')
-#     class1 = nodes.get(query[0])
-#     class2 = query[1]
-#     if class1 is not None and class1.has_child(class2):
-#         results.append('Yes')
-#     else:
-#         results.append('No')
-#
-# for r in results:
-#     print(r)
+# Exclude this execution from imports
+if __name__ == '__main__':
+    print("I'm in main")
+    nodes = create_hierarchy()
+
+    q = int(input())
+
+    results = []
+    for i in range(q):
+        query = input().split(' ')
+        class1 = nodes.get(query[0])
+        class2 = query[1]
+        if class1 is not None and class1.has_child(class2):
+            results.append('Yes')
+        else:
+            results.append('No')
+
+    for r in results:
+        print(r)
+
+else:
+    print(f"{__name__} imported")
