@@ -105,13 +105,13 @@ def create_hierarchy(bi_node=False, hierarchy=None):
 
     for i in range(n):
         # child is only one name on the left
-        classes = input().split(' : ')
+        classes = input().split(" : ")
         child_name = classes[0]
 
         # parents are several names separate by space on the right (multiple inheritance)
         parent_names = []
         if len(classes) > 1:
-            parent_names = classes[1].split(' ')
+            parent_names = classes[1].split(" ")
 
         # create or find parent nodes
         parents = []
@@ -145,7 +145,7 @@ def create_hierarchy(bi_node=False, hierarchy=None):
 
 
 # Exclude this execution from imports
-if __name__ == '__main__':
+if __name__ == "__main__":
     print("I'm in main")
     nodes = create_hierarchy()
 
@@ -153,13 +153,13 @@ if __name__ == '__main__':
 
     results = []
     for i in range(q):
-        query = input().split(' ')
+        query = input().split(" ")
         class1 = nodes.get(query[0])
         class2 = query[1]
         if class1 is not None and class1.has_child(class2):
-            results.append('Yes')
+            results.append("Yes")
         else:
-            results.append('No')
+            results.append("No")
 
     for r in results:
         print(r)

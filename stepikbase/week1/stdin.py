@@ -1,4 +1,4 @@
-# print(input('Введите данные'))
+# print(input("Введите данные"))
 input_minutes = int(input())
 start_hours = int(input())
 start_minutes = int(input())

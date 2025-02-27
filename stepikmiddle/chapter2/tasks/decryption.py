@@ -4,13 +4,13 @@ import simplecrypt
 with open("test_files/encrypted.bin", "rb") as file:
     data = file.read()
 
-with open('test_files/passwords.txt', 'r') as inp:
+with open("test_files/passwords.txt", "r") as inp:
     for line in inp:
         password = line.strip()
         try:
-            print('=================================================================')
+            print("=================================================================")
             decrypted_text = simplecrypt.decrypt(password, data)
             print(f"Decrypted content: {decrypted_text}")
-            print('=================================================================')
+            print("=================================================================")
         except Exception as e:
             print(f"Decryption failed: {e}")

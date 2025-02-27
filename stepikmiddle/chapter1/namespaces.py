@@ -1,5 +1,5 @@
 t_c = 18  # global variable
-tmp = 'ok'  # global variable
+tmp = "ok"  # global variable
 
 
 def fahrenheit(t_c):  # local variable override global
@@ -8,7 +8,7 @@ def fahrenheit(t_c):  # local variable override global
 
 
 # def wrong(t_c):
-#     wrong = tmp + 32  # can't use global variable if local one defined lower
+#     wrong = tmp + 32  # can"t use global variable if local one defined lower
 #     tmp = t_c * 9 / 5
 
 
@@ -23,10 +23,10 @@ def a():
 
 def b():
     print(global_var)
-    # print(a_scope_var)  # Unresolved reference 'a_scope_var'
+    # print(a_scope_var)  # Unresolved reference "a_scope_var"
 
 
-# a()  # NameError: name 'global_var' is not defined
+# a()  # NameError: name "global_var" is not defined
 global_var = 5
 a()
 
@@ -44,12 +44,12 @@ def a():
 a()
 
 for i in range(5):
-    y = i * i  # global variable, python doesn't have block scope
-print('global y defined in for:', y)
+    y = i * i  # global variable, python doesn"t have block scope
+print("global y defined in for:", y)
 
 for i in []:
     x = i * i  # global variable which is not defined
-# print(x)  # NameError: name 'x' is not defined
+# print(x)  # NameError: name "x" is not defined
 
 
 def scope_test():

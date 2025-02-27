@@ -1,7 +1,5 @@
 def mod_checker(n, mod=0):
-    """
-    Returns a function that checks if y % n == mod
-    """
+    """Returns a function that checks if y % n == mod"""
     return lambda y: y % n == mod
 
 

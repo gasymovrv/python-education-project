@@ -15,7 +15,7 @@ print(unique_values)  # Output: {0, 1, 2}
 z = [(x, y) for x in range(3) for y in range(3) if y >= x]
 print(z)
 
-# It's the same as:
+# It"s the same as:
 z = []
 for x in range(3):
     for y in range(3):

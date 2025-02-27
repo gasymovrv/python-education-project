@@ -1,5 +1,5 @@
 x = input("Provide 2 numbers:\n").split()
-print(x)  # ['1', '2']
+print(x)  # ["1", "2"]
 
 # first argument of map is function (constructor of type int is also function int.__init__(str) -> int),
 # second argument is iterable.

@@ -11,13 +11,13 @@ for i in range(n):
 
 final_coordinates = [0, 0]
 for key, value in commands.items():
-    if key == 'восток':
+    if key == "восток":
         final_coordinates[0] += value
-    elif key == 'север':
+    elif key == "север":
         final_coordinates[1] += value
-    elif key == 'запад':
+    elif key == "запад":
         final_coordinates[0] -= value
-    elif key == 'юг':
+    elif key == "юг":
         final_coordinates[1] -= value
 
-print(*final_coordinates, sep=' ')
+print(*final_coordinates, sep=" ")

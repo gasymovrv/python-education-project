@@ -1,7 +1,7 @@
 s = input()
 
 duplicate_counter = 1
-encoded_str = ''
+encoded_str = ""
 last_ch = s[0]
 
 for ch in s[1:]:

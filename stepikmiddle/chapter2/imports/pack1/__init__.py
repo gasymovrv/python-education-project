@@ -6,4 +6,4 @@ def init_fuc():
 
 
 def _f4_func():
-    print('Excluded from * imports because it starts with underscore')
+    print("Excluded from * imports because it starts with underscore")

@@ -18,4 +18,4 @@ while i < len(list_):
     i += 1
 
 for i in list2:
-    print(i, end=' ')
+    print(i, end=" ")

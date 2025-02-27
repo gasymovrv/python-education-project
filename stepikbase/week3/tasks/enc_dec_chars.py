@@ -12,14 +12,14 @@ for i in range(len(dec_sample)):
 
 for ch in line_to_encode:
     if ch in enc_dictionary:
-        print(enc_dictionary[ch], end='')
+        print(enc_dictionary[ch], end="")
     else:
-        print(ch, end='')
+        print(ch, end="")
 print()
 
 for ch in line_to_decode:
     if ch in dec_dictionary:
-        print(dec_dictionary[ch], end='')
+        print(dec_dictionary[ch], end="")
     else:
-        print(ch, end='')
+        print(ch, end="")
 print()

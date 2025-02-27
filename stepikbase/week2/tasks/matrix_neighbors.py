@@ -2,7 +2,7 @@ matrix = []
 
 while True:
     inp = input()
-    if inp == 'end':
+    if inp == "end":
         break
     row = [int(ch) for ch in inp.split()]
     matrix.append(row)

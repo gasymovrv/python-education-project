@@ -2,7 +2,7 @@ n = int(input())
 
 table = {}
 for i in range(n):
-    line = input().split(';')
+    line = input().split(";")
 
     team1 = line[0]
     team2 = line[2]
@@ -33,5 +33,5 @@ for i in range(n):
         table[team2][4] += 1  # количество очков команды 2
 
 for key, value in table.items():
-    print(f'{key}:', end='')
-    print(*value, sep=' ')
+    print(f"{key}:", end="")
+    print(*value, sep=" ")

@@ -4,11 +4,11 @@ multiline
 comment
 """
 
-a = 'hello1'
+a = "hello1"
 b = "hello2"
-c = '''hello3
+c = """hello3
 world
-'''
+"""
 d = """hello4
 world
 """

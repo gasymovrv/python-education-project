@@ -1,12 +1,12 @@
 d = dict()
 d = {}
-d = {'a': 239, 10: 100}
-print('d=', d)
-print('d[\'a\']=', d['a'])
-print('d[10]=', d[10])
+d = {"a": 239, 10: 100}
+print("d=", d)
+print("d[\"a\"]=", d["a"])
+print("d[10]=", d[10])
 
 dictionary = dict(d)  # copy
-key = 'a'
+key = "a"
 print(key in dictionary)
 print(key not in dictionary)
 
@@ -16,21 +16,21 @@ print(dictionary[key])
 del dictionary[key]
 print(dictionary)
 
-d = {'C': 14, 'A': 12, 'T': 9, 'G': 18}
+d = {"C": 14, "A": 12, "T": 9, "G": 18}
 for key in d:
-    print(key, end=' ')
+    print(key, end=" ")
 print()
 
 for key in d.keys():
-    print('key=', key, end=', ')
+    print("key=", key, end=", ")
 print()
 
 for value in d.values():
-    print('value=', value, end=', ')
+    print("value=", value, end=", ")
 print()
 
 for key, value in d.items():
-    print(key, value, sep=':')
+    print(key, value, sep=":")
 
 
 def update_dictionary(d, key, value):

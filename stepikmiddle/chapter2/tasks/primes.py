@@ -24,4 +24,4 @@ gen = primes()
 i = 0
 while i <= 31:
     i = next(gen)
-    print(i, end=', ', )
+    print(i, end=", ", )

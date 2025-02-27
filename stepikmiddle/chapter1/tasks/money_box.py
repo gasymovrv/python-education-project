@@ -16,7 +16,7 @@ class MoneyBox:
         if self.can_add(v):
             self.savings += v
         else:
-            print('Не хватает места')
+            print("Не хватает места")
 
 
 mb = MoneyBox(5)

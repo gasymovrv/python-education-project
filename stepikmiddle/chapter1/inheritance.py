@@ -14,26 +14,26 @@ class A(B, C):  # Множественное наследование
 class F(B, C):
     # overriding
     def method(self):
-        super(B, self).method()  # exclude calling B's method and bound upper method from D
+        super(B, self).method()  # exclude calling B"s method and bound upper method from D
 
 
 x = A()
 
-print('Issubclass:')
+print("Issubclass:")
 print(issubclass(A, A))  # True
 print(issubclass(C, D))  # False
 print(issubclass(A, D))  # True
 print(issubclass(C, object))  # True
 print(issubclass(object, C))  # False
 
-print('Isinstance:')
+print("Isinstance:")
 print(isinstance(x, A))  # True
 print(isinstance(x, B))  # True
 print(isinstance(x, object))  # True
 print(isinstance(x, str))  # False
 
 # Как определяется порядок поиска атрибутов и методов при множественном наследовании:
-print('Method Resolution Order:', A.mro())  # [A, B, D, E, C, object]
+print("Method Resolution Order:", A.mro())  # [A, B, D, E, C, object]
 x2 = F()
 x.method()
 x2.method()
@@ -45,7 +45,7 @@ class MyList(list):
 
     def pop(self):
         x = super().pop()  # equal to list.pop(self)
-        print('I popped:', x)
+        print("I popped:", x)
         return x
 
 
@@ -77,7 +77,7 @@ class Derived(Base):
         self.val += 10
 
     def __repr__(self):
-        return 'val=' + str(self.val)
+        return "val=" + str(self.val)
 
 
 a = Derived()
@@ -107,7 +107,7 @@ class E(B, C, D):
 
 # Интересный кейс: B и C наследуются от одного и того же класса A и он отодвигается дальше C:
 # E, B, C, A, D, object
-print('Method Resolution Order:', E.mro())
+print("Method Resolution Order:", E.mro())
 E().foo()  # C
 
 

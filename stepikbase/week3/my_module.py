@@ -14,20 +14,20 @@ def count_words(words_str, words_dict):
 
 
 def decode_duplicates(encoded_str):
-    if encoded_str == '':
-        return ''
+    if encoded_str == "":
+        return ""
 
-    decoded_str = ''
+    decoded_str = ""
     last_ch = None
-    duplicate_counter = ''
+    duplicate_counter = ""
 
     for i, ch in enumerate(encoded_str):
         if ch.isnumeric():
             duplicate_counter += ch
 
-        if (not ch.isnumeric() and last_ch != ch and duplicate_counter != '') or i == len(encoded_str) - 1:
+        if (not ch.isnumeric() and last_ch != ch and duplicate_counter != "") or i == len(encoded_str) - 1:
             decoded_str += str(last_ch) * int(duplicate_counter)
-            duplicate_counter = ''
+            duplicate_counter = ""
 
         if not ch.isnumeric():
             last_ch = ch

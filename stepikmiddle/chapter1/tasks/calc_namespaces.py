@@ -63,15 +63,15 @@ def add(var_name, parent_name, spaces):
 
 
 namespaces = {
-    'global': {}
+    "global": {}
 }
 
 n = int(input())
 for _ in range(n):
     cmd, namesp, arg = input().split()
-    if cmd == 'create':
+    if cmd == "create":
         create(namesp, arg, namespaces)
-    elif cmd == 'add':
+    elif cmd == "add":
         add(arg, namesp, namespaces)
-    elif cmd == 'get':
+    elif cmd == "get":
         print(calculate_space_for_var(arg, namesp, namespaces))

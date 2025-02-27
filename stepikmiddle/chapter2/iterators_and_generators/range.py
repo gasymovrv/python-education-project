@@ -2,6 +2,12 @@ from random import random
 
 
 class RandomIterator:
+    """
+    RandomIterator(k) returns an iterator that returns k random numbers in the range [0.0, 1.0).
+
+    Uses random.random()
+    """
+
     def __iter__(self):
         return self
 

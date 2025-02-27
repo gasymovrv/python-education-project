@@ -23,4 +23,4 @@ for i, el in enumerate(list_):
 print("--- %s seconds ---" % (time.time() - start_time))
 
 for i in duplicates:
-    print(i, end=' ')
+    print(i, end=" ")

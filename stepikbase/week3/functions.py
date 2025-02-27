@@ -32,7 +32,7 @@ def print_value():
     print(a)  # use global variable
 
 
-# can't use global variable if local one defined
+# can"t use global variable if local one defined
 # def print_value2():
 #     print(a)
 #     a = 10

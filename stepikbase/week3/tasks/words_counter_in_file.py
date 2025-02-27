@@ -1,12 +1,12 @@
 from stepikbase.week3.my_module import count_words
 
 dictionary = {}
-with open('../test_files/words.txt') as inf:
+with open("../test_files/words.txt") as inf:
     for line in inf:
         count_words(line.strip(), dictionary)
 
 max_value = 0
-max_key = ''
+max_key = ""
 for key, value in dictionary.items():
     if value > max_value:
         max_value = value
