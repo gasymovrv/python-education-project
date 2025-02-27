@@ -13,7 +13,9 @@ for i in lst:
 
 for key in book:
     print(f'{key}: {book[key]}')
+
 print('---------')
+
 for key, value in book.items():
     print(f'{key}: {value}')
 
