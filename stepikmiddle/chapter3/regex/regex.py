@@ -98,6 +98,7 @@ print(match)
 print(match.group())
 print(match.group(0))
 print(match.group(1))
+print(re.findall(pattern, string))
 
 pattern = r"(\w+)-\1"  # переиспользование группы, чтобы найти повторяющееся через дефис слова
 string = "test-test chow-chow text"
