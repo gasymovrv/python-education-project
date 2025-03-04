@@ -74,3 +74,15 @@ print(lst)  # [1]
 lst = [10, 5, 8, 3]
 modify_list(lst)
 print(lst)
+
+
+# Default arguments created only once on function definition and can be mutable by func calls!
+def f1(lst=[]):
+    print(f"lst id: {id(lst)}")
+    lst.append(1)
+    print(lst)
+
+
+f1()  # lst id: 139874235124288 | [1]
+f1()  # lst id: 139874235124288 | [1, 1]
+f1()  # lst id: 139874235124288 | [1, 1, 1]

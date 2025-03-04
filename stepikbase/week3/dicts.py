@@ -49,3 +49,15 @@ update_dictionary(d, 2, -2)
 print(d)  # {2: [-1, -2]}
 update_dictionary(d, 1, -3)
 print(d)  # {2: [-1, -2, -3]}
+
+
+my_dict = {'name': 'Alice', 'age': 25}
+
+# Using []
+print(my_dict['name'])  # ✅ Alice
+# print(my_dict['gender'])  # ❌ KeyError!
+
+# Using get()
+print(my_dict.get('name'))    # ✅ Alice
+print(my_dict.get('gender'))  # None
+print(my_dict.get('gender', 'Unknown'))  # ✅ Custom Default Value: Unknown

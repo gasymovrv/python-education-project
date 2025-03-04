@@ -1,3 +1,5 @@
+from tree_nodes import Node, BiNode
+
 # Первые n строк - описание наследования классов в следующем формате.
 # <имя класса 1> : <имя класса 2> <имя класса 3> ... <имя класса k>
 # Это означает, что класс 1 отнаследован от класса 2, класса 3, и т. д.
@@ -26,78 +28,6 @@
 # No
 
 
-class Node:
-    def __init__(self, name, children=None):
-        if children is None or not isinstance(children, list):
-            children = []
-
-        self.name = name
-        self.children = children
-
-    def __repr__(self):
-        return f"(name: {self.name}, children: {self.children})"
-
-    def __eq__(self, other):
-        return self.name == other.name
-
-    def has_child(self, child_name):
-        if self.name == child_name:
-            return True
-        if self.children is None:
-            return False
-
-        result = False
-        for child in self.children:
-            if child.name == child_name:
-                return True
-            result = child.has_child(child_name)
-            if result:
-                return True
-
-        return result
-
-    def add_child(self, child):
-        self.children.append(child)
-
-    def add_children(self, children):
-        self.children.extend(children)
-
-
-class BidirectionalNode(Node):
-    def __init__(self, name, children=None, parents=None):
-        super().__init__(name, children)
-        if parents is None or not isinstance(parents, list):
-            parents = []
-        self.parents = parents
-
-    def has_parent(self, p_name):
-        if self.name == p_name:
-            return True
-        if self.parents is None:
-            return False
-
-        result = False
-        for p in self.parents:
-            if p.name == p_name:
-                return True
-            result = p.has_parent(p_name)
-            if result:
-                return True
-
-        return result
-
-    def has_any_parent(self, p_names):
-        for p_name in p_names:
-            if self.has_parent(p_name):
-                return True
-
-    def add_parent(self, p):
-        self.parents.append(p)
-
-    def add_parents(self, ps):
-        self.parents.extend(ps)
-
-
 def create_hierarchy(bi_node=False, hierarchy=None):
     n = int(input())
     if hierarchy is None:
@@ -120,7 +50,7 @@ def create_hierarchy(bi_node=False, hierarchy=None):
                 parent = hierarchy[pn]
             else:
                 if bi_node:
-                    parent = BidirectionalNode(pn)
+                    parent = BiNode(pn)
                 else:
                     parent = Node(pn)
                 hierarchy[pn] = parent
@@ -131,7 +61,7 @@ def create_hierarchy(bi_node=False, hierarchy=None):
             child = hierarchy[child_name]
         else:
             if bi_node:
-                child = BidirectionalNode(child_name)
+                child = BiNode(child_name)
             else:
                 child = Node(child_name)
             hierarchy[child_name] = child
