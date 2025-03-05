@@ -64,7 +64,6 @@ print("\njoin")
 # Возвращает строку, соединяя элементы списка через пробел. Элементы списка должны быть строками
 print(repr(" ".join(numbers)))
 
-
 print("\nformat")
 capital = "London is the capital of Great Britain"
 template = "{} is the capital of {}"
@@ -97,3 +96,30 @@ print("{:.3}".format(x))  # Округление до трех знаков по
 x = 0.000467653
 print(x)
 print("{:.3}".format(x))
+
+import inspect
+from stepikmiddle.chapter1.tasks.tree_nodes import BiNode
+
+print(inspect.signature(dict.get))
+print(inspect.getsource(BiNode))
+
+persons = [
+    {"name": "Alice", "birthday": 1990},
+    {"name": "Alice", "birthday": 1971},
+    {"name": "Bob", "birthday": 1985},
+    {"name": "Charlie", "birthday": 1990},
+    {"name": "David", "birthday": 1992},
+    {"name": "Eve", "birthday": 1985}
+]
+
+print("\nsorted with lambda")
+# sorted creates a new list
+# Sort: first by birthday descending, then by name ascending
+sorted_persons = sorted(persons, key=lambda p: (-p["birthday"], p["name"]))
+print(sorted_persons)
+
+print("\nstr.sort with lambda")
+# str.sort modifies the list
+# Sort: first by name, then by birthday
+persons.sort(key=lambda p: (p["name"], p["birthday"]))
+print(persons)

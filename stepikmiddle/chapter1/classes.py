@@ -47,6 +47,14 @@ class Counter:
     def __init__(self):
         self.count = 0
 
+    def __getitem__(self, item):
+        """
+         It uses the built-in getattr() function to retrieve the attribute.
+        :param item: attribute name
+        :return: attribute value
+        """
+        return getattr(self, item)
+
     def inc(self):
         self.count += 1
 
@@ -62,3 +70,5 @@ Counter.inc(counter)  # It"s the same as counter.inc()
 print(counter.count)
 counter.reset()
 print(counter.count)
+print(counter["count"])
+print(counter.__getitem__.__doc__)
