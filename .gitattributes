@@ -1,0 +1,5 @@
+# Exclude all HTML, XML, JSON and TXT files from git statistics
+*.html linguist-ignore
+*.xml linguist-ignore
+*.json linguist-ignore
+*.txt linguist-ignore
