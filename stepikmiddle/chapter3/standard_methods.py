@@ -123,3 +123,11 @@ print("\nstr.sort with lambda")
 # Sort: first by name, then by birthday
 persons.sort(key=lambda p: (p["name"], p["birthday"]))
 print(persons)
+
+print("\nreversed")
+lst = [1, 2, 3]
+print(reversed(lst))  # <list_reverseiterator object at 0x000001D1361D1630>
+
+for i in reversed(lst):
+    print(i)
+print(lst.reverse())
