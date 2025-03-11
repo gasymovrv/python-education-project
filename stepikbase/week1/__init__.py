@@ -1,5 +1,9 @@
 import sys
 
+
+a = int()  # 0 by default
+print(a)
+
 print("======== Возведение в степень ** =========")
 print(9 ** 2 - int(float(9 ** 2)))  # 0
 print(9 ** 19 - int(float(9 ** 19)))  # 89 - Большие float теряют точность
